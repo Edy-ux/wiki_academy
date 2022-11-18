@@ -2,9 +2,12 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Todo } from '../../../typing';
-import { PageProps } from '../../../typing';
 
-// rf
+export type PageProps = {
+  params: {
+    videoId: string;
+  };
+};
 
 const dinamicParams = true;
 
@@ -19,8 +22,8 @@ async function fetchTodos(todoId: string) {
   return todos;
 }
 
-async function TodoPage({ params: { todoId } }: PageProps) {
-  const todo: Todo = await fetchTodos(todoId);
+ export default async function VideoPage({ params: { videoId } }: PageProps) {
+  const todo: Todo = await fetchTodos(videoId);
   //404 error
   /*   if (parseInt(todoId) !== todo.id) {
     return <p>Item não encontrado</p>;
@@ -40,13 +43,13 @@ async function TodoPage({ params: { todoId } }: PageProps) {
   );
 }
 
-export default TodoPage;
+ 
 
 export async function generateStaticParams() {
   const res = await fetch('https://jsonplaceholder.typicode.com/todos/');
   const todos: Todo[] = await res.json();
   const filterTodos = todos.splice(0, 28);
   return filterTodos.map((todo) => ({
-    todoId: todo.id.toString(),
+    videoId: todo.id.toString(),
   }));
 }

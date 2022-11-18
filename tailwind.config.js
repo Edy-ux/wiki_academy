@@ -2,8 +2,8 @@
 
 module.exports = {
   content: [
-
-    './app/**/*.{js,ts,jsx,tsx}', 
+    "./node_modules/flowbite-react/**/*.js",
+    './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
@@ -15,9 +15,11 @@ module.exports = {
       'mono': ['ui-monospace', 'SFMono-Regular'],
       'display': ['Oswald'],
       'body': ['"Open Sans"'],
-      
+
     }
   },
-  plugins: [],
-  
+  plugins: [
+    require("flowbite/plugin")
+  ]
+
 }

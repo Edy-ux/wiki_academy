@@ -1,25 +1,22 @@
-import Link from 'next/link';
 import React from 'react';
 import '../styles/header.css';
-import sim from '../assets/sim.png';
-import Image from 'next/image';
 
 function Header() {
   return (
-    <header className="flex gap-2  ">
-      <div className="supports-backdrop-blur:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 lg:border-b lg:border-slate-900/10">
-        <div className="max-w-8xl mx-auto">
-          <div className="mx-4 border-b border-slate-900/10 py-4 dark:border-slate-300/10 lg:mx-0 lg:border-0 lg:px-8">
-            <div className="relative flex items-center">
+    <header className="flex mx-4 w-full z-40" >
+      <div className=" fixed inset-x-0 wsupports-backdrop-blur:bg-white/60   w-full  bg-white/95 backdrop-blur transition-colors duration-500 dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 border-b border-slate-900/10">
+        <div className="mx-auto">
+          <div className="py-3 dark:border-slate-300/10 lg:mx-0  lg:px-4">
+            <div className="flex items-center gap-2">
               <a
-                className="mr-3 w-[2.0625rem]  flex overflow-hidden md:w-auto  "
+                className="mr-3 w-[2.0625rem]  flex overflow-hidden md:w-auto justify-items-center "
                 href="/"
               >
-                <div className="flex text-center flex-row gap-1 items-center">
-                  <div className="bg-black h-11 w-11 rounded-full text-center ">
-                    <p className="text-lg text-white font-bold">sim</p>
+                <div className="flex flex-row gap-1 items-center">
+                  <div className="bg-[#0f0f0f] h-11 w-11 rounded-full flex  justify-center items-center">
+                    <p className="text-lg text-white font-bold">Wiki</p>
                   </div>
-                  <h1 className="text-lg">Wikis</h1>
+                  <h1 className="text-lg font-semibold">Academy</h1>
                 </div>
               </a>
 
@@ -47,23 +44,16 @@ function Header() {
                   </svg>
                 </button>
               </div>
+              
               <a
-                className="ml-3 hidden items-center rounded-full bg-sky-400/10 py-1 px-3 text-xs font-medium leading-5 text-sky-600 hover:bg-sky-400/20 dark:text-sky-400 xl:flex"
-                href="/todos"
+                className="ml-3 hidden md:flex items-center rounded-full bg-sky-400/10 py-1 px-3 text-xs font-medium leading-5 text-sky-600 hover:bg-sky-400/20 dark:text-sky-400 xl:flex"
+                href="/videos"
               >
-                <strong className="font-semibold">SIM DIGITAL</strong>
-                <svg
-                  width="2"
-                  height="2"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  className="ml-2 text-white dark:text-sky-400/70"
-                >
-                  <circle cx="1" cy="1" r="1"></circle>
-                </svg>
-                <span className="ml-2 min-[1372px]:hidden">
-                  Aprenda, tire dúvidas sobre tecnología e mais.
-                </span>
+              
+
+                <strong className="font-semibold">Wiki Academy</strong>
+                
+                <div className="ml-2 hidden lg:flex"> Aprenda, tire dúvidas sobre tecnología e mais.</div>
 
                 <svg
                   width="3"
@@ -232,7 +222,7 @@ function Header() {
               </div>
             </div>
           </div>
-          <div className="flex items-center border-b border-slate-900/10 p-4 dark:border-slate-50/[0.06] lg:hidden">
+          <div className="flex lg:hidden items-center border-y border-slate-900/10 p-4 dark:border-slate-50/[0.06] ">
             <button
               type="button"
               className="text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"

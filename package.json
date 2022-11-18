@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "tailwind": "tailwind -i ./styles/globals.css -o ./public/styles.css --watch ",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
@@ -9,6 +10,8 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.13",
+    "flowbite": "^1.5.4",
+    "flowbite-react": "^0.3.4",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -19,9 +22,9 @@
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
-    "autoprefixer": "^10.4.12",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.1",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
     "typescript": "4.8.4"
   }
 }

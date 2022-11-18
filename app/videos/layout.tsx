@@ -1,5 +1,5 @@
 import '../../styles/globals.css';
-import TodoList from './TodoList';
+import VideosList from './VideosList';
 
 export default function TodoLayout({
   children,
@@ -7,12 +7,12 @@ export default function TodoLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex ml-4">
+    <main className="flex ml-4 " >
       <div>
         {/*@ts-ignore*/}
-        <TodoList />
+        <VideosList />
       </div>
-      <div className="flex-1 ml-40" >
+      <div className="flex-shrink-0" >
         {children}
       </div>
     </main>

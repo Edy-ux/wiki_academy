@@ -11,14 +11,14 @@ export const fetchTodos = async () => {
 };
 
 const createArray = (length: number) => [...Array(length)];
-async function TodoList() {
+async function VideoList() {
   const todos = await fetchTodos();
   return (
-    <div className="lg:text-sm lg:leading-6 fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))]  w-[10.5rem] px-4 py-4 overflow-y-auto ">
+    <div className="lg:text-sm lg:leading-6  z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))]  w-[10.5rem] px-4 py-5 overflow-y-auto ">
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            <Link href={`/todos/${todo.id}`}>Todo: {todo.id}</Link>
+            <Link href={`/videos/${todo.id}`}>Video: {todo.id}</Link>
           </li>
         ))}
       </ul>
@@ -26,4 +26,4 @@ async function TodoList() {
   );
 }
 
-export default TodoList;
+export default VideoList;

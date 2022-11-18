@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-export default function Todos() {
+export default function Videos() {
     // fetchTodos() 
   return (
     <div>

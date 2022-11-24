@@ -10,16 +10,11 @@ export default function RootLayout({
   return (
     <html>
       <head>
-        <title>sim.digital wikis</title>
+        <title>Wi Academy</title>
         <link
           rel="stylesheet"
           href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
         />
-        <link
-          rel="shortcut icon"
-          href="https://static.wixstatic.com/media/3757d5_b444873c2b064680a8dc3bf3fcd4b881%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/3757d5_b444873c2b064680a8dc3bf3fcd4b881%7Emv2.png"
-          type="image/png"
-        ></link>
         {/* <link sizes="192x192" rel="icon" href="/sim.png" /> */}
         <meta property="og:type" content="article"></meta>
         <link

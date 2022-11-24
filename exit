@@ -1,0 +1,753 @@
+[33mcommit 40662030650f57846d9ebd1039dd2f9753c973f8[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: fenderlopes@gmail.com <fenderlopes@gmail.com>
+Date:   Fri Nov 18 01:08:45 2022 -0300
+
+    add styles with tailwind and flowbite
+
+[1mdiff --git a/.vscode/settings.json b/.vscode/settings.json[m
+[1mindex bd3337f..c3d9d94 100644[m
+[1m--- a/.vscode/settings.json[m
+[1m+++ b/.vscode/settings.json[m
+[36m@@ -1,4 +1,4 @@[m
+ {[m
+[31m-  "typescript.tsdk": "node_modules\\typescript\\lib",[m
+[32m+[m[32m  "typescript.tsdk": "./node_modules/typescript/lib",[m
+   "typescript.enablePromptUseWorkspaceTsdk": true[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/Header.tsx b/app/Header.tsx[m
+[1mindex 0fe4c3f..3d2cdda 100644[m
+[1m--- a/app/Header.tsx[m
+[1m+++ b/app/Header.tsx[m
+[36m@@ -1,25 +1,22 @@[m
+[31m-import Link from 'next/link';[m
+ import React from 'react';[m
+ import '../styles/header.css';[m
+[31m-import sim from '../assets/sim.png';[m
+[31m-import Image from 'next/image';[m
+ [m
+ function Header() {[m
+   return ([m
+[31m-    <header className="flex gap-2  ">[m
+[31m-      <div className="supports-backdrop-blur:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 lg:border-b lg:border-slate-900/10">[m
+[31m-        <div className="max-w-8xl mx-auto">[m
+[31m-          <div className="mx-4 border-b border-slate-900/10 py-4 dark:border-slate-300/10 lg:mx-0 lg:border-0 lg:px-8">[m
+[31m-            <div className="relative flex items-center">[m
+[32m+[m[32m    <header className="flex mx-4 w-full z-40" >[m
+[32m+[m[32m      <div className=" fixed inset-x-0 wsupports-backdrop-blur:bg-white/60   w-full  bg-white/95 backdrop-blur transition-colors duration-500 dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 border-b border-slate-900/10">[m
+[32m+[m[32m        <div className="mx-auto">[m
+[32m+[m[32m          <div className="py-3 dark:border-slate-300/10 lg:mx-0  lg:px-4">[m
+[32m+[m[32m            <div className="flex items-center gap-2">[m
+               <a[m
+[31m-                className="mr-3 w-[2.0625rem]  flex overflow-hidden md:w-auto  "[m
+[32m+[m[32m                className="mr-3 w-[2.0625rem]  flex overflow-hidden md:w-auto justify-items-center "[m
+                 href="/"[m
+               >[m
+[31m-                <div className="flex text-center flex-row gap-1 items-center">[m
+[31m-                  <div className="bg-black h-11 w-11 rounded-full text-center ">[m
+[31m-                    <p className="text-lg text-white font-bold">sim</p>[m
+[32m+[m[32m                <div className="flex flex-row gap-1 items-center">[m
+[32m+[m[32m                  <div className="bg-[#0f0f0f] h-11 w-11 rounded-full flex  justify-center items-center">[m
+[32m+[m[32m                    <p className="text-lg text-white font-bold">Wiki</p>[m
+                   </div>[m
+[31m-                  <h1 className="text-lg">Wikis</h1>[m
+[32m+[m[32m                  <h1 className="text-lg font-semibold">Academy</h1>[m
+                 </div>[m
+               </a>[m
+ [m
+[36m@@ -47,23 +44,16 @@[m [mfunction Header() {[m
+                   </svg>[m
+                 </button>[m
+               </div>[m
+[32m+[m[41m              [m
+               <a[m
+[31m-                className="ml-3 hidden items-center rounded-full bg-sky-400/10 py-1 px-3 text-xs font-medium leading-5 text-sky-600 hover:bg-sky-400/20 dark:text-sky-400 xl:flex"[m
+[31m-                href="/todos"[m
+[32m+[m[32m                className="ml-3 hidden md:flex items-center rounded-full bg-sky-400/10 py-1 px-3 text-xs font-medium leading-5 text-sky-600 hover:bg-sky-400/20 dark:text-sky-400 xl:flex"[m
+[32m+[m[32m                href="/videos"[m
+               >[m
+[31m-                <strong className="font-semibold">SIM DIGITAL</strong>[m
+[31m-                <svg[m
+[31m-                  width="2"[m
+[31m-                  height="2"[m
+[31m-                  fill="currentColor"[m
+[31m-                  aria-hidden="true"[m
+[31m-                  className="ml-2 text-white dark:text-sky-400/70"[m
+[31m-                >[m
+[31m-                  <circle cx="1" cy="1" r="1"></circle>[m
+[31m-                </svg>[m
+[31m-                <span className="ml-2 min-[1372px]:hidden">[m
+[31m-                  Aprenda, tire dúvidas sobre tecnología e mais.[m
+[31m-                </span>[m
+[32m+[m[41m              [m
+[32m+[m
+[32m+[m[32m                <strong className="font-semibold">Wiki Academy</strong>[m
+[32m+[m[41m                [m
+[32m+[m[32m                <div className="ml-2 hidden lg:flex"> Aprenda, tire dúvidas sobre tecnología e mais.</div>[m
+ [m
+                 <svg[m
+                   width="3"[m
+[36m@@ -232,7 +222,7 @@[m [mfunction Header() {[m
+               </div>[m
+             </div>[m
+           </div>[m
+[31m-          <div className="flex items-center border-b border-slate-900/10 p-4 dark:border-slate-50/[0.06] lg:hidden">[m
+[32m+[m[32m          <div className="flex lg:hidden items-center border-y border-slate-900/10 p-4 dark:border-slate-50/[0.06] ">[m
+             <button[m
+               type="button"[m
+               className="text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"[m
+[1mdiff --git a/app/blog/page.tsx b/app/blog/page.tsx[m
+[1mindex 3652ef0..162c7cb 100644[m
+[1m--- a/app/blog/page.tsx[m
+[1m+++ b/app/blog/page.tsx[m
+[36m@@ -2,7 +2,8 @@[m [mimport React from 'react'[m
+ [m
+ function page() {[m
+   return ([m
+[31m-    <div>page</div>[m
+[32m+[m[32m    <div>[m[41m [m
+[32m+[m[32m    <div className="ml-2 hidden md:flex">Aprenda, tire dúvidas sobre tecnología e mais.</div>PAGE</div>[m
+   )[m
+ }[m
+ [m
+[1mdiff --git a/app/components/dropDown/SideBar.tsx b/app/components/dropDown/SideBar.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b6ca017[m
+[1m--- /dev/null[m
+[1m+++ b/app/components/dropDown/SideBar.tsx[m
+[36m@@ -0,0 +1,237 @@[m
+[32m+[m[32mimport React from 'react';[m
+[32m+[m
+[32m+[m[32mconst SideBar = () => {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <div className="">[m
+[32m+[m[32m    <aside className="w-60 text-gray-500 fixed " aria-label="Sidebar" >[m
+[32m+[m[32m      <div className="py-4 px-3  rounded dark:bg-gray-800"> {/*   */}[m
+[32m+[m[32m        <ul className="space-y-2">[m
+[32m+[m[32m          <li>[m
+[32m+[m[32m            <a[m
+[32m+[m[32m              href="#"[m
+[32m+[m[32m              className="flex items-center p-2 font-semibold text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                className="w-6 h-6"[m
+[32m+[m[32m                fill="none"[m
+[32m+[m[32m                stroke="currentColor"[m
+[32m+[m[32m                viewBox="0 0 24 24"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path[m
+[32m+[m[32m                  stroke-linecap="round"[m
+[32m+[m[32m                  stroke-linejoin="round"[m
+[32m+[m[32m                  stroke-width="2"[m
+[32m+[m[32m                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"[m
+[32m+[m[32m                ></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m              {/* <svg aria-hidden="true" className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg> */}[m
+[32m+[m[32m              <span className="ml-3">Videos</span>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </li>[m
+[32m+[m[32m          <li>[m
+[32m+[m[32m            <button[m
+[32m+[m[32m              type="button"[m
+[32m+[m[32m              className="flex items-center p-2 w-full text-base  text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"[m
+[32m+[m[32m              aria-controls="dropdown-example"[m
+[32m+[m[32m              data-collapse-toggle="dropdown-example"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                className="w-6 h-6"[m
+[32m+[m[32m                fill="none"[m
+[32m+[m[32m                stroke="currentColor"[m
+[32m+[m[32m                viewBox="0 0 24 24"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path[m
+[32m+[m[32m                  stroke-linecap="round"[m
+[32m+[m[32m                  stroke-linejoin="round"[m
+[32m+[m[32m                  stroke-width="2"[m
+[32m+[m[32m                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"[m
+[32m+[m[32m                ></path>[m
+[32m+[m[32m                <path[m
+[32m+[m[32m                  stroke-linecap="round"[m
+[32m+[m[32m                  stroke-linejoin="round"[m
+[32m+[m[32m                  stroke-width="2"[m
+[32m+[m[32m                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"[m
+[32m+[m[32m                ></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m              <span[m
+[32m+[m[32m                className="flex-1 ml-3 text-left whitespace-nowrap   font-semibold"[m
+[32m+[m[32m                sidebar-toggle-item[m
+[32m+[m[32m              >[m
+[32m+[m[32m                PlayList[m
+[32m+[m[32m              </span>[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                sidebar-toggle-item[m
+[32m+[m[32m                className="w-6 h-6"[m
+[32m+[m[32m                fill="currentColor"[m
+[32m+[m[32m                viewBox="0 0 20 20"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path[m
+[32m+[m[32m                  fill-rule="evenodd"[m
+[32m+[m[32m                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"[m
+[32m+[m[32m                  clip-rule="evenodd"[m
+[32m+[m[32m                ></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m            </button>[m
+[32m+[m[32m            <ul id="dropdown-example" className="hidden py-2 space-y-2">[m
+[32m+[m[32m              <li>[m
+[32m+[m[32m                <a[m
+[32m+[m[32m                  href="#"[m
+[32m+[m[32m                  className="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"[m
+[32m+[m[32m                >[m
+[32m+[m[32m                  Rede Wifi[m
+[32m+[m[32m                </a>[m
+[32m+[m[32m              </li>[m
+[32m+[m[32m              <li>[m
+[32m+[m[32m                <a[m
+[32m+[m[32m                  href="#"[m
+[32m+[m[32m                  className="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"[m
+[32m+[m[32m                >[m
+[32m+[m[32m                  Webinar[m
+[32m+[m[32m                </a>[m
+[32m+[m[32m              </li>[m
+[32m+[m[32m              <li>[m
+[32m+[m[32m                <a[m
+[32m+[m[32m                  href="#"[m
+[32m+[m[32m                  className="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"[m
+[32m+[m[32m                >[m
+[32m+[m[32m                  Tutorias[m
+[32m+[m[32m                </a>[m
+[32m+[m[32m              </li>[m
+[32m+[m[32m            </ul>[m
+[32m+[m[32m          </li>[m
+[32m+[m[32m          <li>[m
+[32m+[m[32m            <a[m
+[32m+[m[32m              href="#"[m
+[32m+[m[32m              className="flex items-center p-2 text-base  font-semibold text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                aria-hidden="true"[m
+[32m+[m[32m                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"[m
+[32m+[m[32m                fill="currentColor"[m
+[32m+[m[32m                viewBox="0 0 20 20"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m              <span className="flex-1 ml-3 whitespace-nowrap">Planos</span>[m
+[32m+[m[32m              {/* <span className="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span> */}[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </li>[m
+[32m+[m[32m          <li>[m
+[32m+[m[32m            <a[m
+[32m+[m[32m              href="#"[m
+[32m+[m[32m              className="flex items-center p-2 text-base font-semibold text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                aria-hidden="true"[m
+[32m+[m[32m                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"[m
+[32m+[m[32m                fill="currentColor"[m
+[32m+[m[32m                viewBox="0 0 20 20"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path>[m
+[32m+[m[32m                <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m              <span className="flex-1 ml-3 whitespace-nowrap">Inbox</span>[m
+[32m+[m[32m              <span className="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">[m
+[32m+[m[32m                3[m
+[32m+[m[32m              </span>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </li>[m
+[32m+[m[32m          <li>[m
+[32m+[m[32m            <a[m
+[32m+[m[32m              href="#"[m
+[32m+[m[32m              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                aria-hidden="true"[m
+[32m+[m[32m                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"[m
+[32m+[m[32m                fill="currentColor"[m
+[32m+[m[32m                viewBox="0 0 20 20"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path[m
+[32m+[m[32m                  fill-rule="evenodd"[m
+[32m+[m[32m                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"[m
+[32m+[m[32m                  clip-rule="evenodd"[m
+[32m+[m[32m                ></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m              <span className="flex-1 ml-3 whitespace-nowrap">Users</span>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </li>[m
+[32m+[m[32m          <li>[m
+[32m+[m[32m            <a[m
+[32m+[m[32m              href="#"[m
+[32m+[m[32m              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                className="w-6 h-6"[m
+[32m+[m[32m                fill="none"[m
+[32m+[m[32m                stroke="currentColor"[m
+[32m+[m[32m                viewBox="0 0 24 24"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path[m
+[32m+[m[32m                  stroke-linecap="round"[m
+[32m+[m[32m                  stroke-linejoin="round"[m
+[32m+[m[32m                  stroke-width="2"[m
+[32m+[m[32m                  d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"[m
+[32m+[m[32m                ></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m              <span className="flex-1 ml-3 whitespace-nowrap">Boletos</span>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </li>[m
+[32m+[m[32m          <li>[m
+[32m+[m[32m            <a[m
+[32m+[m[32m              href="#"[m
+[32m+[m[32m              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                aria-hidden="true"[m
+[32m+[m[32m                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"[m
+[32m+[m[32m                fill="currentColor"[m
+[32m+[m[32m                viewBox="0 0 20 20"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path[m
+[32m+[m[32m                  fill-rule="evenodd"[m
+[32m+[m[32m                  d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"[m
+[32m+[m[32m                  clip-rule="evenodd"[m
+[32m+[m[32m                ></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m              <span className="flex-1 ml-3 whitespace-nowrap">Sign In</span>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </li>[m
+[32m+[m[32m          <li>[m
+[32m+[m[32m            <a[m
+[32m+[m[32m              href="#"[m
+[32m+[m[32m              className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"[m
+[32m+[m[32m            >[m
+[32m+[m[32m              <svg[m
+[32m+[m[32m                aria-hidden="true"[m
+[32m+[m[32m                className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"[m
+[32m+[m[32m                fill="currentColor"[m
+[32m+[m[32m                viewBox="0 0 20 20"[m
+[32m+[m[32m                xmlns="http://www.w3.org/2000/svg"[m
+[32m+[m[32m              >[m
+[32m+[m[32m                <path[m
+[32m+[m[32m                  fill-rule="evenodd"[m
+[32m+[m[32m                  d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"[m
+[32m+[m[32m                  clip-rule="evenodd"[m
+[32m+[m[32m                ></path>[m
+[32m+[m[32m              </svg>[m
+[32m+[m[32m              <span className="flex-1 ml-3 whitespace-nowrap">Sign Up</span>[m
+[32m+[m[32m            </a>[m
+[32m+[m[32m          </li>[m
+[32m+[m[32m        </ul>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m    </aside>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default SideBar;[m
+[1mdiff --git a/app/index.html b/app/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9e7a2b0[m
+[1m--- /dev/null[m
+[1m+++ b/app/index.html[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="en">[m
+[32m+[m[32m  <head>[m
+[32m+[m[32m    <meta charset="UTF-8" />[m
+[32m+[m[32m    <meta http-equiv="X-UA-Compatible" content="IE=edge" />[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1.0" />[m
+[32m+[m[32m    <title>Document</title>[m
+[32m+[m[32m    ~[m
+[32m+[m[32m    <link rel="stylesheet" href="styles.css" />[m
+[32m+[m[32m  </head>[m
+[32m+[m[32m  <body>[m
+[32m+[m[32m    <h1>Hello</h1>[m
+[32m+[m[32m  </body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/app/layout.tsx b/app/layout.tsx[m
+[1mindex 160dccd..75dac90 100644[m
+[1m--- a/app/layout.tsx[m
+[1m+++ b/app/layout.tsx[m
+[36m@@ -1,4 +1,5 @@[m
+[31m-import '../styles/globals.css'[m
+[32m+[m[32mimport '../styles/globals.css';[m
+[32m+[m[32mimport SideBar from './components/dropDown/SideBar';[m
+ import Header from './Header';[m
+ [m
+ export default function RootLayout({[m
+[36m@@ -6,21 +7,38 @@[m [mexport default function RootLayout({[m
+ }: {[m
+   children: React.ReactNode;[m
+ }) {[m
+[31m-[m
+[31m-[m
+   return ([m
+     <html>[m
+       <head>[m
+[31m-        <title>SIM wikis</title>[m
+[31m-        <link rel="icon" href="/favicon.ico" />[m
+[32m+[m[32m        <title>sim.digital wikis</title>[m
+[32m+[m[32m        <link[m
+[32m+[m[32m          rel="stylesheet"[m
+[32m+[m[32m          href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"[m
+[32m+[m[32m        />[m
+[32m+[m[32m        <link[m
+[32m+[m[32m          rel="shortcut icon"[m
+[32m+[m[32m          href="https://static.wixstatic.com/media/3757d5_b444873c2b064680a8dc3bf3fcd4b881%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/3757d5_b444873c2b064680a8dc3bf3fcd4b881%7Emv2.png"[m
+[32m+[m[32m          type="image/png"[m
+[32m+[m[32m        ></link>[m
+[32m+[m[32m        {/* <link sizes="192x192" rel="icon" href="/sim.png" /> */}[m
+         <meta property="og:type" content="article"></meta>[m
+[31m-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"[m
+[31m-      rel="stylesheet"></link>[m
+[32m+[m[32m        <link[m
+[32m+[m[32m          href="https://fonts.googleapis.com/icon?family=Material+Icons"[m
+[32m+[m[32m          rel="stylesheet"[m
+[32m+[m[32m        ></link>[m
+       </head>[m
+[31m-      <body >[m
+[31m-        <Header/>[m
+[31m-        {/* <p><strong>Childrens....</strong></p><br />  */}[m
+[31m-        {children}  [m
+[32m+[m[32m      <body>[m
+[32m+[m[32m        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>[m
+[32m+[m[32m        <Header />[m
+[32m+[m[32m        <main className="mt-20 ">[m
+[32m+[m[32m          <div className="grid grid-cols-5 divide-x-2 gap-4">[m
+[32m+[m[32m              <SideBar />[m
+[32m+[m[32m            {/* element above fixed */}[m
+[32m+[m[32m            <div className="col-span-4">[m
+[32m+[m[32m              {children}[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </main>[m
+       </body>[m
+     </html>[m
+   );[m
+[1mdiff --git a/app/page.tsx b/app/page.tsx[m
+[1mindex 96205e5..08b79de 100644[m
+[1m--- a/app/page.tsx[m
+[1m+++ b/app/page.tsx[m
+[36m@@ -1,21 +1,24 @@[m
+ import { Suspense } from 'react';[m
+[31m-import Search from './search/Search';[m
+ [m
+[32m+[m[32mimport Dropdown from './components/dropDown/SideBar';[m
+[32m+[m[32mimport Search from './search/Search';[m
+[32m+[m[32mimport { Skeleton } from './search/[searchItem]/loading';[m
+ function Home() {[m
+   return ([m
+[31m-    <div>[m
+[31m-       <main className="flex space-x-5 divide-x-2 p-5">[m
+[31m-[m
+[31m-      <div>[m
+[31m-        <h1 className="text-2xl">Wikis</h1>[m
+[31m-      </div>[m
+[31m-      [m
+[31m-      <div className="flex-1 pl-5 ">[m
+[31m-        {/* <Search/> */}[m
+[32m+[m[32m    <main className="flex flex-col mx-5 p-4">[m
+[32m+[m[32m      <div className="flex-1">[m
+[32m+[m[32m        <h1 className=" font-extrabold text-gray-900 dark:text-white text-[2rem] lg:text-[4rem]">[m
+[32m+[m[32m          <span className="text-gray-900 bg-clip-text text-transparent bg-gradient-to-r from-[#180404] to-[#0f0d04] ">[m
+[32m+[m[32m            WikiTube[m
+[32m+[m[32m          </span>[m
+[32m+[m[32m        </h1>[m[41m [m
+[32m+[m[32m        <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">[m
+[32m+[m[32m          Alguno paragrafo aqui Algum paragrafo aqui Algum paragrafo aqui Algum[m
+[32m+[m[32m          paragrafo aqui.[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <Skeleton />[m
+       </div>[m
+[31m-      [m
+     </main>[m
+[31m-    </div>[m
+   );[m
+ }[m
+ [m
+[1mdiff --git a/app/search/Search.tsx b/app/search/Search.tsx[m
+[1mindex 33f1f8c..526d128 100644[m
+[1m--- a/app/search/Search.tsx[m
+[1m+++ b/app/search/Search.tsx[m
+[36m@@ -1,19 +1,34 @@[m
+ 'use client';[m
+ import { useRouter } from 'next/navigation';[m
+ import React, { useState, FormEvent, InputHTMLAttributes } from 'react';[m
+[31m-// import SearchIcon from '@mui/icons-material/Search';[m
+ type searchType = {[m
+   text: string;[m
+ };[m
+ [m
+ const IconSearch = () => {[m
+   return ([m
+[31m-    <div className="absolute left-2 top-2">[m
+[31m-      <span className="material-icons">search</span>[m
+[32m+[m[32m    <div className="absolute left-2 top-2 text-gray-800">[m
+[32m+[m[32m      <svg[m
+[32m+[m[32m        width="20"[m
+[32m+[m[32m        height="20"[m
+[32m+[m[32m        fill="none"[m
+[32m+[m[32m        stroke="currentColor"[m
+[32m+[m[32m        stroke-width="1.5"[m
+[32m+[m[32m        stroke-linecap="round"[m
+[32m+[m[32m        stroke-linejoin="round"[m
+[32m+[m[32m        aria-hidden="true"[m
+[32m+[m[32m        className="hover:stroke-black"[m
+[32m+[m[32m      >[m
+[32m+[m[32m        <path d="m19 19-3.5-3.5"></path>[m
+[32m+[m[32m        <circle cx="11" cy="11" r="6"></circle>[m
+[32m+[m[32m      </svg>[m
+     </div>[m
+   );[m
+ };[m
+ [m
+[32m+[m
+[32m+[m
+[32m+[m
+ function Search() {[m
+   const [search, setSearch] = useState('');[m
+   const router = useRouter();[m
+[36m@@ -33,7 +48,9 @@[m [mfunction Search() {[m
+         <IconSearch />[m
+         <input[m
+           value={search}[m
+[32m+[m[32m          title="Pesquise videos aqui"[m
+           className=" form-control [m
+[32m+[m[41m         [m
+         block[m
+         w-80[m
+         pl-10[m
+[36m@@ -51,12 +68,10 @@[m [mfunction Search() {[m
+           type="search"[m
+           name="seacrh"[m
+           placeholder="Pesquisar "[m
+[31m-          onChange={handleChange}[m
+[32m+[m[32m          onChange={handleChange}[m[41m [m
+         />[m
+[31m-        <button[m
+[31m-          className="bg-sky-500 flex-none  rounded-md text-white px-3"[m
+[31m-          type="submit"[m
+[31m-        >[m
+[32m+[m[32m        <button  className="bg-sky-400/10 flex-none  rounded px-3 font-semibold "  > {/*  bg-gradient-to-r from-[#180404] to-[#0f0d04]  */}[m
+[32m+[m[32m          {/* text-transparent bg-gradient-to-r  from-[#FF0006] to-[#FFD500]*/}[m
+           Buscar[m
+         </button>[m
+       </form>[m
+[1mdiff --git a/app/search/[searchItem]/loading.tsx b/app/search/[searchItem]/loading.tsx[m
+[1mindex 0045cb1..23001d9 100644[m
+[1m--- a/app/search/[searchItem]/loading.tsx[m
+[1m+++ b/app/search/[searchItem]/loading.tsx[m
+[36m@@ -1,12 +1,14 @@[m
+[32m+[m
+[32m+[m
+ import React from 'react';[m
+ // import Skeleton from 'react-loading-skeleton';[m
+ import 'react-loading-skeleton/dist/skeleton.css';[m
+ [m
+[31m-const Skeleton = () => {[m
+[32m+[m[32mexport const Skeleton = () => {[m
+   return ([m
+     <>[m
+       <div className="mt-5 w-auto animate-pulse flex-row items-center justify- space-x-1 rounded-xl border p-6 ">[m
+[31m-        <div className="flex flex-col space-y-2" >[m
+[32m+[m[32m        <div className="flex flex-col space-y-2">[m
+           <div className="h-6 w-11/12 rounded-md bg-gray-300 "></div>[m
+           <div className="h-6 w-10/12 rounded-md bg-gray-300 "></div>[m
+           <div className="h-6 w-9/12 rounded-md bg-gray-300 "></div>[m
+[36m@@ -17,6 +19,14 @@[m [mconst Skeleton = () => {[m
+   );[m
+ };[m
+ [m
+[32m+[m[32mconst ArrayCreator = (...args: Array<{[m
+[32m+[m[32m  id: string;[m
+[32m+[m[32m  number: number;[m
+[32m+[m[32m  createAt: Date;[m
+[32m+[m[32m}>[]) => {[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+ const ArraySkeleto = () => [...Array(4)];[m
+ [m
+ const SkeletonCard = () => ([m
+[1mdiff --git a/app/search/[searchItem]/page.tsx b/app/search/[searchItem]/page.tsx[m
+[1mindex 0a19eb8..fc29a26 100644[m
+[1m--- a/app/search/[searchItem]/page.tsx[m
+[1m+++ b/app/search/[searchItem]/page.tsx[m
+[36m@@ -4,7 +4,7 @@[m [mimport { Search, Todo } from '../../../typing';[m
+ type SearchResult = {[m
+   organic_results: [[m
+     {[m
+[31m-      position: 'number';[m
+[32m+[m[32m      position: number;[m
+       title: string;[m
+       link: string;[m
+       thumbnail: string;[m
+[36m@@ -12,34 +12,31 @@[m [mtype SearchResult = {[m
+     }[m
+   ];[m
+ };[m
+[32m+[m
+ async function seacrh(searchItem: string) {[m
+   const res = await fetch([m
+[31m-    `https://serpapi.com/search.json?q=${searchItem}&api_key=${process.env.API_KEY}`, {next: { revalidate: 60 }}[m
+[32m+[m[32m    `https://serpapi.com/search.json?q=${searchItem}&api_key=${process.env.API_KEY}`,[m
+[32m+[m[32m    { next: { revalidate: 60 } }[m
+   );[m
+[31m-  const data: SearchResult = await res.json();[m
+[31m-  return data;[m
+[32m+[m[32m  const result: SearchResult = await res.json();[m
+[32m+[m[32m  return result;[m
+ }[m
+ [m
+ async function SearchResults({ params: { searchItem } }: Search) {[m
+[31m-  const { organic_results } = await seacrh(searchItem);[m
+[32m+[m[32m  const { organic_results: result } = await seacrh(searchItem);[m
+ [m
+   return ([m
+[31m-[m
+[31m-/*     <Suspense fallback={<Loading />}>[m
+[31m-  <SomeComponent />[m
+[31m-</Suspense> */[m
+     <div className="m-5">[m
+[31m-      <p className="my-2 text-gray-800" >[m
+[31m-        Resultados para {''}[m
+[31m-        <span className="text-sm font-bold" >[m
+[31m-          {searchItem}[m
+[31m-        </span>[m
+[31m-        </p>[m
+[31m-      <ol className="spacy-y-5 p-5 text-base hover:text-base">[m
+[31m-        {organic_results.map((elem) => ([m
+[32m+[m[32m      <p className="my-2 text-gray-800">[m
+[32m+[m[32m        Resultados para[m
+[32m+[m[32m        <span className=" ml-1 text-sm font-bold">{searchItem}</span>[m
+[32m+[m[32m      </p>[m
+[32m+[m
+[32m+[m[32m      <ol className="spacy-y-5 p-5 text-sm ">[m
+[32m+[m[32m        {result.map((elem: any) => ([m
+           <li key={elem.position} className="list-decimal">[m
+[31m-            <p className="ml-2 font-bold " >{elem.title}</p>[m
+[31m-            <p  className="ml-2">{elem.snippet}</p>[m
+[32m+[m[32m            <p className="ml-2 font-bold text-base">{elem.title}</p>[m
+[32m+[m[32m            <p className="ml-2">{elem.snippet}</p>[m
+           </li>[m
+         ))}[m
+       </ol>[m
+[1mdiff --git a/app/search/head.tsx b/app/search/head.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7482f2a[m
+[1m--- /dev/null[m
+[1m+++ b/app/search/head.tsx[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32mimport React from 'react';[m
+[32m+[m
+[32m+[m[32mfunction Head() {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <>[m
+[32m+[m[32m      <title>Wi Search</title>[m
+[32m+[m[32m    </>[m
+[32m+[m[32m  );[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default Head;[m
+[1mdiff --git a/app/search/layout.tsx b/app/search/layout.tsx[m
+[1mindex 195edab..d14fbfd 100644[m
+[1m--- a/app/search/layout.tsx[m
+[1m+++ b/app/search/layout.tsx[m
+[36m@@ -6,15 +6,13 @@[m [mexport default function TodoLayout({[m
+   children: React.ReactNode;[m
+ }) {[m
+   return ([m
+[31m-    <main className="flex space-x-5 divide-x-2 p-5">[m
+[31m-      <div>[m
+[31m-        <h1 className="text-2xl">Wikis</h1>[m
+[31m-      </div>[m
+[31m-      [m
+[31m-      <div className="flex-1 pl-5 ">[m
+[31m-        <Search/>[m
+[31m-        <div> {children}</div>[m
+[32m+[m[32m    <main className="flex-1 space-x-5 p-5   ">[m
+[32m+[m[32m      <div className="flex pl-5 ">[m
+[32m+[m[32m        <Search />[m
+       </div>[m
+[32m+[m[32m     <div className="flex-1 w-auto">[m
+[32m+[m[32m       {children}[m
+[32m+[m[32m     </div>[m
+     </main>[m
+   );[m
+ }[m
+[1mdiff --git a/app/search/page.tsx b/app/search/page.tsx[m
+[1mindex 3b1f45b..d353ce4 100644[m
+[1m--- a/app/search/page.tsx[m
+[1m+++ b/app/search/page.tsx[m
+[36m@@ -2,8 +2,18 @@[m [mimport React from 'react';[m
+ [m
+ function Page() {[m
+   return ([m
+[31m-    <div className="text-sm text-slate-900 dark:text-slate-200  font-bold sm:text-3xl my-2" >[m
+[31m-   [m
+[32m+[m[32m    <div className="text-sm text-slate-900 dark:text-slate-200  font-bold sm:text-3xl my-3">[m
+[32m+[m[32m      <h1 className="text-2xl">Wikis</h1>[m
+[32m+[m[32m     {/*  <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">[m
+[32m+[m[32m        <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">[m
+[32m+[m[32m          Sim.Digital[m
+[32m+[m[32m        </span>{' '}[m
+[32m+[m[32m        Somos a Sua conexão[m
+[32m+[m[32m      </h1>[m
+[32m+[m[32m      <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">[m
+[32m+[m[32m        Algum paragrafo texto aqui Algum paragrafo texto aqui Algum paragrafo[m
+[32m+[m[32m        texto aqui Algum paragrafo texto aqui.[m
+[32m+[m[32m      </p> */}[m
+     </div>[m
+   );[m
+ }[m
+[1mdiff --git a/app/styles.css b/app/styles.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ee69106[m
+[1m--- /dev/null[m
+[1m+++ b/app/styles.css[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32mh1 {[m
+[32m+[m[32m    color: gray;[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/app/todos/TodoList.tsx b/app/videos/VideosList.tsx[m
+[1msimilarity index 67%[m
+[1mrename from app/todos/TodoList.tsx[m
+[1mrename to app/videos/VideosList.tsx[m
+[1mindex 4a2a7cd..4173ad7 100644[m
+[1m--- a/app/todos/TodoList.tsx[m
+[1m+++ b/app/videos/VideosList.tsx[m
+[36m@@ -11,14 +11,14 @@[m [mexport const fetchTodos = async () => {[m
+ };[m
+ [m
+ const createArray = (length: number) => [...Array(length)];[m
+[31m-async function TodoList() {[m
+[32m+[m[32masync function VideoList() {[m
+   const todos = await fetchTodos();[m
+   return ([m
+[31m-    <div className="lg:text-sm lg:leading-6 fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))]  w-[10.5rem] px-4 py-4 overflow-y-auto ">[m
+[32m+[m[32m    <div className="lg:text-sm lg:leading-6  z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-45rem))]  w-[10.5rem] px-4 py-5 overflow-y-auto ">[m
+       <ul>[m
+         {todos.map((todo) => ([m
+           <li key={todo.id}>[m
+[31m-            <Link href={`/todos/${todo.id}`}>Todo: {todo.id}</Link>[m
+[32m+[m[32m            <Link href={`/videos/${todo.id}`}>Video: {todo.id}</Link>[m
+           </li>[m
+         ))}[m
+       </ul>[m
+[36m@@ -26,4 +26,4 @@[m [masync function TodoList() {[m
+   );[m
+ }[m
+ [m
+[31m-export default TodoList;[m
+[32m+[m[32mexport default VideoList;[m
+[1mdi

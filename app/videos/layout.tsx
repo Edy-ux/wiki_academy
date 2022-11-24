@@ -7,12 +7,12 @@ export default function TodoLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex ml-4 " >
+    <main className="flex" >
       <div>
         {/*@ts-ignore*/}
         <VideosList />
       </div>
-      <div className="flex-shrink-0" >
+      <div className="flex-grow" >
         {children}
       </div>
     </main>

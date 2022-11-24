@@ -3,7 +3,7 @@ import React from 'react';
 function Head() {
   return (
     <>
-      <title> Search</title>
+      <title>Video </title>
     </>
   );
 }
